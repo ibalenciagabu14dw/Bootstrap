@@ -1,0 +1,44 @@
+<html ng-app="miApp">
+	<head>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/controller.js"></script>
+		<style type="text/css" media="screen">
+			img{
+				width: 120px;
+				height: 100px;
+				margin: 15px;
+			}			
+		</style>
+	</head>
+	<body ng-controller="MiCont">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="jumbotron">
+						<h1>{{saludo}}</h1>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<label for="name">Nombre:</label>
+					<input type="text" ng-model="nombre" class="form-control input-lg">
+					<button class="btn btn-primary" ng-click="actualizarNombre()">ACTUALIZAR</button>
+					<!--div de mensaje de error en el caso de no escribir nada en la caja de texto-->
+					<div ng-show="mostrarAlert" class="alert alert-danger alert-dismissible" role="alert">
+  						
+  						<strong>Error!</strong> el nombre no puede estar vacio!!!!!!!
+					</div>
+					<ul>
+						<li ng-repeat="nom in nombres">{{nom.nombre}}</li>
+					</ul>
+					<div ng-show="mostrarAlert2" class="alert alert-warning alert-dismissible" role="alert">
+  						<strong>Warning!</strong> No existen fotos con ese nombre!!!!!!!
+					</div>
+				</div>
+				<img class="img-circle" ng-repeat="f in fotos" src={{f.media.m}}/></img>
+			</div>
+		</div>
+		
+		
+	</body>
+</html>
